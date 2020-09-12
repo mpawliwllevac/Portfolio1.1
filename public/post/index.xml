@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Matthew Pawliw-Levac</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Matthew Pawliw-Levac</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 11 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Understanding of RInno</title>
+      <link>/post/my-understanding-of-rinno/</link>
+      <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/my-understanding-of-rinno/</guid>
+      <description>In today&#39;s post I want to go over RInno for deploying Shiny apps to desktop as well as the benefits and how to get it all going.</description>
+    </item>
+    
+    <item>
+      <title>I Generated the Potionmaster Teacher&#39;s Dashboard</title>
+      <link>/post/i-generated-the-potionmaster-teacher-s-dashboard/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/i-generated-the-potionmaster-teacher-s-dashboard/</guid>
+      <description>This is a thing I made: https://mpawliw-levac.shinyapps.io/potionmaster/
+Why did I make it?</description>
+    </item>
+    
+    <item>
+      <title>My Understanding of Blogdown &amp; Github</title>
+      <link>/post/my-understanding-of-blogdown-github/</link>
+      <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/my-understanding-of-blogdown-github/</guid>
+      <description>As seems to be Blogdown tradition my first blog post using blogdown is a quick and dirty guide for getting a blogdown site off the ground.</description>
+    </item>
+    
+  </channel>
+</rss>

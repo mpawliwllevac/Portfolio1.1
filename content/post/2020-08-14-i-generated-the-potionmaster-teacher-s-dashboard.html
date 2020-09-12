@@ -1,0 +1,46 @@
+---
+title: I Generated the Potionmaster Teacher's Dashboard
+author: Matthew Pawliw-Levac
+date: '2020-08-14'
+slug: i-generated-the-potionmaster-teacher-s-dashboard
+categories:
+  - R
+  - I Generated
+tags:
+  - shiny
+  - deployment
+  - dashboard
+  - buttons
+---
+
+
+
+<p>This is a thing I made: <a href="https://mpawliw-levac.shinyapps.io/potionmaster/" class="uri">https://mpawliw-levac.shinyapps.io/potionmaster/</a></p>
+<iframe width="600" height="700" frameborder="no" src="https://mpawliw-levac.shinyapps.io/potionmaster/">
+</iframe>
+<p><strong>Why did I make it?</strong><br />
+I've spent some time at a school board and was looking to emulate a little bit of what they had. Specifically, the dashboards that were being used.</p>
+<p><strong>What did I make?</strong><br />
+What I made is a sample dashboard that could be used by a teacher or school staff to help gain deeper knowledge about their students. This could help a teacher potentially see patterns that they wouldn't have been able to otherwise that they can then adjust their teaching for.</p>
+<p>Currently the dashboard lets a user filter (sample) students based on a number of different categories. Province and race are selectable but expanding the system into any areas that data exist for would be very simple following this template. Other data that could be included could be disciplinary action, report card, other classes taken, grades or any other demographic data. The selected data is then presented in a number of useful plots and tables; with the class average and distribution of grades up front and center. There's also a tab containing the breakdown of grades by assignment, adding even more granularity. Lastly the raw data is available for viewing in the last tab in a nice DT table.</p>
+<p><strong>Why I Think It's Cool?</strong></p>
+<ul>
+<li>I'm proud because its my first real shiny app. There's lots of customizability but also lots of room for improvement.</li>
+<li>The granularity of being able to see how groups and combinations of groups are performing.</li>
+<li>Its easy to see things at a glance but also allows for fine tuning.</li>
+<li>I'm very happy how the violin/boxplots plots turned out.</li>
+<li>It is very feasible to set up the app for multiple classes or expanding on the data coming into the system.</li>
+</ul>
+<p><strong>Limitations or Problems</strong></p>
+<ul>
+<li>NaN when there's no data selected<br />
+</li>
+<li>Potential for overwhelming number of selectable categories depending on data (solution has been found but just not implemented here)<br />
+</li>
+<li>Improving the class avg box. There's a lot that could be done to improve the box but it wasn't worth the time investment for such minor changes.<br />
+</li>
+<li>Summary data having tables of varying length makes them not look as good as they could be. This would also cause problems if there was more than one row of tables.<br />
+</li>
+<li>I was unable to decide between histogram and density plot given the limitations of each and ended up opting to include both as separate plots.</li>
+</ul>
+<p><a href="https://github.com/mpawliwllevac/R-Scripts-Reference/blob/master/Potionmaster/app.R">Raw code available here</a></p>

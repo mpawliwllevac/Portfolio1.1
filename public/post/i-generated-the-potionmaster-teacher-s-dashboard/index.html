@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>I Generated the Potionmaster Teacher&#39;s Dashboard</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description"
+    content="The portfolio and blog of Matthew Pawliw-Levac">
+    
+    
+  <meta name="author" content="Matthew Pawliw-Levac">
+  <meta name="generator" content="Hugo 0.71.1" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="/plugins/themify-icons/themify-icons.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+
+  
+  
+  
+
+</head><body>
+    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="fixed-top navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+      <a class="navbar-brand"href="/"><img class="img-fluid" src="/images/logo-small.png" alt="Matthew Pawliw-Levac"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/"> Home </a>
+          </li>
+          
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            
+          
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+            
+          
+        </ul>
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation --> <div class="py-5 d-none d-lg-block"></div> 
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto block shadow mb-5">
+        <h2>I Generated the Potionmaster Teacher&rsquo;s Dashboard</h2>
+        <div class="mb-3 post-meta">
+          <a href="/author/matthew-pawliw-levac">Matthew Pawliw-Levac</a>,
+          Aug 14, 2020, 
+          <a href="/categories/r">R</a>
+          
+          <a href="/categories/i-generated">I Generated</a>
+          
+        </div>
+        
+        <div class="content mb-5">
+          
+
+
+<p>This is a thing I made: <a href="https://mpawliw-levac.shinyapps.io/potionmaster/" class="uri">https://mpawliw-levac.shinyapps.io/potionmaster/</a></p>
+<iframe width="600" height="700" frameborder="no" src="https://mpawliw-levac.shinyapps.io/potionmaster/">
+</iframe>
+<p><strong>Why did I make it?</strong><br />
+I've spent some time at a school board and was looking to emulate a little bit of what they had. Specifically, the dashboards that were being used.</p>
+<p><strong>What did I make?</strong><br />
+What I made is a sample dashboard that could be used by a teacher or school staff to help gain deeper knowledge about their students. This could help a teacher potentially see patterns that they wouldn't have been able to otherwise that they can then adjust their teaching for.</p>
+<p>Currently the dashboard lets a user filter (sample) students based on a number of different categories. Province and race are selectable but expanding the system into any areas that data exist for would be very simple following this template. Other data that could be included could be disciplinary action, report card, other classes taken, grades or any other demographic data. The selected data is then presented in a number of useful plots and tables; with the class average and distribution of grades up front and center. There's also a tab containing the breakdown of grades by assignment, adding even more granularity. Lastly the raw data is available for viewing in the last tab in a nice DT table.</p>
+<p><strong>Why I Think It's Cool?</strong></p>
+<ul>
+<li>I'm proud because its my first real shiny app. There's lots of customizability but also lots of room for improvement.</li>
+<li>The granularity of being able to see how groups and combinations of groups are performing.</li>
+<li>Its easy to see things at a glance but also allows for fine tuning.</li>
+<li>I'm very happy how the violin/boxplots plots turned out.</li>
+<li>It is very feasible to set up the app for multiple classes or expanding on the data coming into the system.</li>
+</ul>
+<p><strong>Limitations or Problems</strong></p>
+<ul>
+<li>NaN when there's no data selected<br />
+</li>
+<li>Potential for overwhelming number of selectable categories depending on data (solution has been found but just not implemented here)<br />
+</li>
+<li>Improving the class avg box. There's a lot that could be done to improve the box but it wasn't worth the time investment for such minor changes.<br />
+</li>
+<li>Summary data having tables of varying length makes them not look as good as they could be. This would also cause problems if there was more than one row of tables.<br />
+</li>
+<li>I was unable to decide between histogram and density plot given the limitations of each and ended up opting to include both as separate plots.</li>
+</ul>
+<p><a href="https://github.com/mpawliwllevac/R-Scripts-Reference/blob/master/Potionmaster/app.R">Raw code available here</a></p>
+
+        </div>
+        <div class="mb-3 post-meta">
+           <a href="/tags/shiny">#Shiny</a>,   <a href="/tags/deployment">#Deployment</a>,   <a href="/tags/dashboard">#Dashboard</a>,   <a href="/tags/buttons">#Buttons</a>,  
+        </div>
+      </div>
+      <div class="col-lg-8 mx-auto block shadow">
+        
+        
+        <h3>See Also</h3>
+        <ul>
+          
+          <li><a href="/post/my-understanding-of-blogdown-github/">My Understanding of Blogdown &amp; Github</a></li>
+          
+        </ul>
+        
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<footer class="py-4 bg-light border-top">
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+        <a href="/" class="d-block pb-3"><img src="/images/logo-small.png" class="img-fluid" alt="Matthew Pawliw-Levac"></a>
+      </div>
+      <div class="col-lg-4 text-center mb-4 mb-lg-0">
+        <ul class="list-inline mb-0">
+          
+        </ul>
+      </div>
+      <div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+        <ul class="list-inline social-icon mb-0">
+          
+          <li class="list-inline-item"><a href="https://twitter.com/ToaEmpoleon"><i class="ti-twitter-alt"></i></a></li>
+          
+          <li class="list-inline-item"><a href="https://github.com/mpawliwllevac"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a href="https://ca.linkedin.com/in/matthew-pawliw-levac-581406167"><i class="ti-linkedin"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <span>© 2020 <a href="https://gethugothemes.com">Gethugothemes</a> All Rights Reserved</span>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+<!-- JS Plugins -->
+
+<script src="/plugins/jQuery/jquery.min.js"></script>
+
+<script src="/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="/plugins/search/fuse.min.js"></script>
+
+<script src="/plugins/search/mark.js"></script>
+
+<script src="/plugins/search/search.js"></script>
+
+
+<!-- Main Script -->
+
+<script src="/js/script.min.js"></script>
+
+<!-- google analitycs -->
+</body>
+
+</html>

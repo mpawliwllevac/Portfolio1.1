@@ -1,0 +1,176 @@
+---
+title: My Understanding of Blogdown & Github
+author: Matthew Pawliw-Levac
+date: '2020-05-29'
+slug: my-understanding-of-blogdown-github
+categories:
+  - R
+  - My understanding
+tags:
+  - blogdown
+  - deployment
+  - github
+  - netlify
+---
+
+
+
+<p>As seems to be Blogdown tradition my first blog post using blogdown is a quick and dirty guide for getting a blogdown site off the ground. The <em>My Understanding</em> of series is my attempt at writing concise guides for my future self on how to do complicated or infrequent jobs. This page is about creating a website using Blogdown from scratch, which I've always found to be a very obtuse process that frequently runs into errors not explained in tutorials/guides. I don't plan on explaining the benefits of blogdown (though look here for that <a href="https://bookdown.org/yihui/blogdown/" class="uri">https://bookdown.org/yihui/blogdown/</a> ) or comparing blogdown to other ways to make website. I'm fairly sure there are objectively easier ways to make a blog or website than using blogdown UNLESS your site is about R. I will also not be demonstrating how to add content or customize the site on this page. If it ends up such that you do not feel like this guide has been completely helpful I have a resources section at the bottom with other tutorials and information about blogdown. I myself used other tutorials to make this happen in the first place. <br> If you happen to not be me there are a few things that one should already know how to do before starting this process. The most important of which is already having a solid understanding of R and R Studio. Other than that its mostly making online acounts and pressing buttons.</p>
+<div id="getting-the-blogdown-package" class="section level1">
+<h1>Getting the Blogdown Package</h1>
+<p>Aquiring the blogdown package is as simple as aquiring any R package <em>install.packages(&quot;blogdown&quot;)</em>. You will be asked if you want to install Hugo, say yes because hugo is important. One thing of note is that installing blogdown will give a shiny new 'addins' button with many of the blogdown function (serve site, new post, etc) that you can use as an alternative to running commands.</p>
+<pre class="r"><code>#code used:
+install.packages(&quot;blogdown&quot;)</code></pre>
+</div>
+<div id="creating-a-local-site" class="section level1">
+<h1>Creating a Local Site</h1>
+<p>Once blogdown is installed we're going to make a new R studio project. When starting the project in a new/existing directory under 'project type' you'll be able to select 'website using blogdown'. When the project files are created it'll come with a config.toml file that you can make changes to to customize your site.</p>
+<p>1of5 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd1_install_blogdown.png" width="300" /><br />
+2of5 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd2_new_project.png" width="700" /><br />
+3of5 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd3_create_project.png" width="300" /><br />
+4of5 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd4_projecttype.png" width="300" /><br />
+5of5 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd5_new_project.png" width="300" /></p>
+<p>This demo site is what we'll be launching to the internet (I'll explain in another page how to add content and such). We're also going to need this package loaded so <em>library()</em> from the terminal. But when we made the site nothing happened, we have to serve the site, with <em>blogdown::serve_site()</em> which can be done from the addin menu or console. This will open up the site for us to explore in the file viewer (I increased the size of my viewer for visibility). Right now it just has a couple of demo posts but I'm sure you have some great ideas of how you can add to that. Right now the site only exists on our computer so we've got some work to do before it can be seen by everyone.</p>
+<pre class="r"><code>library(blogdown)
+blogdown::serve_site()</code></pre>
+<p>1of2 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd6_serve_site.png" width="700" /> 2of2 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd7_view_site.png" width="700" /></p>
+</div>
+<div id="have-github" class="section level1">
+<h1>Have Github</h1>
+<p>For this step you'll be going to <a href="https://github.com/" class="uri">https://github.com/</a> and making an acount with them. This is how we'll be getting the site files off of your computer and accessible to the internet (for netlify)</p>
+<div class="figure">
+<img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/Github%20site%20view.png" width="700" />
+
+</div>
+</div>
+<div id="upload-your-site-to-github" class="section level1">
+<h1>Upload Your Site to Github</h1>
+<p>Now according to most of the tutorials I looked at this is supposed to be a pretty simple process. However they seem to have left out some steps that caused me problems. I will be mentioning these problems as well as how I managed to evenually kill the problems.</p>
+<p>Our first step is to get your existing local site onto github by making a new empty repository on github (you don't need a readme or gitignore to start). When you create a new repository there's no need to adjust options beyond the name. After creating the repository it brings to several options such as &quot;quick setup&quot;, &quot;creating the new repository on the command line&quot;, &quot;pushing an existing repository from the command line&quot;, or &quot;importing code from another repository&quot;. The option that we will care about is creating the new repository on the command line. It may be convienent for you to copy/paste the code shown on github into a safe notepad or similar location.</p>
+<p>1of3 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd8_github_profile.png" width="700" /> 2of3 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd9_new_repository.png" width="700" /> 3of3 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd10_new_repository2.png" width="700" /></p>
+<p>Using this code will require us to be on the command line though. You can get there from the start menu and typing 'cmd' into the search bar (unsure of directions on non-windows). This is where I ran into my first real problem in that the code shown on github wouldn't run. If you, like me are getting an error along the lines of &quot;git command does not exist&quot; then your computer does not have git installed (easy test is typing &quot;git init&quot; into the command line). That's ok though, we can fix it! The steps to getting this working are: 1) download and install git; 2) add git to the computers PATH variables.</p>
+<div class="figure">
+<img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd11_no_git.png" width="700" />
+
+</div>
+<div id="installing-git" class="section level2">
+<h2>Installing Git</h2>
+<p>So our next step is to install git, there's nothing special about the installation and it can just be clicked through. You can download Git from this link <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a> . There are many options during the installation process and no changes from the defaults are necessary (unless your computer needs them for some reason).</p>
+<div class="figure">
+<img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd12_download_git.png" width="700" />
+
+</div>
+</div>
+<div id="adding-git-to-the-computers-path-variables" class="section level2">
+<h2>Adding git to the computers PATH variables</h2>
+<p>Next, we'll be adding git to the computers PATH variables. I won't be going over that in detail here as it would just be a copy/paste of this guide ( <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a> ) but for my own records the button order is:</p>
+<ul>
+<li>control panel</li>
+<li>system</li>
+<li>advanced system settings</li>
+<li>advanced tab</li>
+<li>environment variables</li>
+<li>path -&gt; edit</li>
+<li>new -&gt; &quot;;&quot; and paste the path to the Git CMD file (eg ;C:Files-bash.exe ). Shft+R click will have a &quot;copy as path&quot; option though you'll have to remove &quot;&quot;</li>
+<li>If you had the cmd window open already, close it then open it again.</li>
+<li>Done!</li>
+</ul>
+</div>
+<div id="upload-your-site-to-github-for-real-this-time" class="section level2">
+<h2>Upload your site to github, for real this time</h2>
+<p>Here's the general code for using the git commands to upload your site. Of note is that after you attempt your first commit you will be asked for your github username and email (these can be provided with the commands <em>git config -- global user.email &quot;<a href="mailto:you@example.com">you@example.com</a>&quot;</em>, replacing email with user for the other). Additionally, the code provided below has 1 difference to the quick set up code. That difference is <em>git add .</em> to add everything in our project folder to our commit, and is indicated by the comment with #####.</p>
+<pre class="r"><code>#rememeber that despite this showing up as R code its going on the command line
+#these user specific paths would also be made for you if you have the code from 
+cd the_path_to_your_project_folder #eg C:\Users\matth\Dropbox\R Working Directory\Demo Site
+echo &quot;# [repositoryname]&quot; &gt;&gt; README.md #eg # Demo-Site
+git init
+git add README.md #this will add a readme file. you&#39;ll only need to add this once
+git add .  #####the period indicates everything in the folder
+git commit -m &quot;first commit&quot; #the quotes can be anything and are what you&#39;re calling this particular commit. its useful to keep it organized
+git remote add origin {url for the repository} #eg https://github.com/username/Demo-Site.git 
+git push -u origin master</code></pre>
+<p>1of9 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd13_cd.png" width="550" /><br />
+2of9 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd14_echo.png" width="550" /><br />
+3of9 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd15_git_init.png" width="550" /><br />
+4of9 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd16_readme.png" width="550" /><br />
+5of9 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd17_add..png" width="550" /><br />
+6of9 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd18_commit.png" width="550" /><br />
+7of9 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd19_github_login.png" width="550" /><br />
+8of9 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd20_push.png" width="550" /><br />
+9of9 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd21_github_files.png" width="550" /></p>
+<p>Once you've pushed to the master branch you can refresh the webpage with the repository and the files should all be there. This means that you've successfully uploaded your website to github. This was a hardest step. All that's left is Netlify so that the whole world can see what you've made!</p>
+</div>
+</div>
+<div id="have-netlify" class="section level1">
+<h1>Have Netlify</h1>
+<p>For this step you'll be going to www.netlify.com and making an account with them. This is how we'll be deploying our website.</p>
+<div class="figure">
+<img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/Netlify%20site%20view.png" width="700" />
+
+</div>
+</div>
+<div id="build-netlify-site-deploying-from-github" class="section level1">
+<h1>Build Netlify Site Deploying From Github</h1>
+<p>We're in the home stretch. This part is largely pushing buttons so here's the list of buttons after you've got your account.</p>
+<ul>
+<li>Sites tab<br />
+</li>
+<li>new site from git<br />
+</li>
+<li>github as the git provider<br />
+</li>
+<li>authorize netlify into your github<br />
+</li>
+<li>select the repository you've made for your website (the one you were committing files to earlier)<br />
+</li>
+<li>'show advanced' build settings<br />
+</li>
+<li>new variable<br />
+</li>
+<li>Key: HUGO-VERSION<br />
+</li>
+<li>Value: 0.53</li>
+</ul>
+<p>1of7 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd22_new_site.png" width="550" /></p>
+<hr />
+<p>2of7 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd23_deployment.png" width="550" /></p>
+<hr />
+<p>3of7 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd24_repository.png" width="550" /></p>
+<hr />
+<p>4of7 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd25_settings.png" width="550" /></p>
+<hr />
+<p>5of7 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd26_advanced_settings.png" width="550" /></p>
+<hr />
+<p>6of7 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd27_hugo_version.png" width="550" /></p>
+<hr />
+<p>7of7 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd28_deployed.png" width="550" /></p>
+<p>You'll be taken to a new page saying that the deployment of your website is happening. This is it. Your site is being birthed onto the internet. Assuming the deploy works you'll be able to click on the link for your site which will be something like <a href="https://nonsense-numbers.netlify.app" class="uri">https://nonsense-numbers.netlify.app</a> and you'll be able to see your website on the internet. Check from your phone, its really cool to be able to see the fruit of what you did.</p>
+<p>Now if you don't want random giberish as your website url you can fix it (without purchasing a custom domain). We got some more buttons:</p>
+<ul>
+<li>start on the overview tab of your brand new shiny website (this is also where netlify drops you after making the site)</li>
+<li>site settings</li>
+<li>Under site details, then under site information -&gt; &quot;change site name&quot;</li>
+<li>Cange it to whatever you want. It'll still end in '.netlify.app' though</li>
+</ul>
+<p>1of3 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd29_deploy_settings.png" width="550" /><br />
+2of3 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd30_change_name.png" width="550" /><br />
+3of3 <img src="/post/2020-05-29-my-understanding-of-blogdown-github_files/bd31_site_name.png" width="550" /></p>
+<p>And that's it. You're done!</p>
+</div>
+<div id="resources" class="section level1">
+<h1>Resources</h1>
+<p>This is a bonus section and has a bunch of resources and tutorials on blogdown in case people don't find this site helpful. If you find that I missed something please let me know.</p>
+<div id="tutorials" class="section level3">
+<h3>Tutorials</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=rFr1OmS7V9Y">Create a Website with R Studio in 15 Minutes!</a> by Nathaniel Raley Woodward</li>
+<li><a href="https://youtu.be/ox_Ue9yzf-0">How to make a personal academic website for free using R and the blogdown package</a> by Daniel Quintana</li>
+<li><a href="https://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/">How to build a website with Blogdown in R</a> by Martin Frigaard</li>
+</ul>
+</div>
+<div id="other-resources-on-blogdown" class="section level3">
+<h3>Other resources on blogdown</h3>
+<p><a href="https://bookdown.org/yihui/blogdown/">THE book on Blogdown</a> by: Yihui Xie, Amber Thomas, Alison Presmanes Hill</p>
+<p><a href="https://alison.rbind.io/post/2017-06-12-up-and-running-with-blogdown/">Up &amp; Running with Blogdown</a> by Alison Hill</p>
+</div>
+</div>

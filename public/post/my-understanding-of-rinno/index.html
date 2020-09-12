@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>My Understanding of RInno</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description"
+    content="The portfolio and blog of Matthew Pawliw-Levac">
+    
+    
+  <meta name="author" content="Matthew Pawliw-Levac">
+  <meta name="generator" content="Hugo 0.71.1" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="/plugins/themify-icons/themify-icons.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="/images/favicon.png " type="image/x-icon">
+
+  
+  
+  
+
+</head><body>
+    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="fixed-top navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+      <a class="navbar-brand"href="/"><img class="img-fluid" src="/images/logo-small.png" alt="Matthew Pawliw-Levac"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/"> Home </a>
+          </li>
+          
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            
+          
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+            
+          
+        </ul>
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation --> <div class="py-5 d-none d-lg-block"></div> 
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto block shadow mb-5">
+        <h2>My Understanding of RInno</h2>
+        <div class="mb-3 post-meta">
+          <a href="/author/matthew-pawliw-levac">Matthew Pawliw-Levac</a>,
+          Sep 11, 2020, 
+          <a href="/categories/r">R</a>
+          
+          <a href="/categories/my-understanding">My Understanding</a>
+          
+        </div>
+        
+        <div class="content mb-5">
+          
+
+
+<div class="figure">
+<img src="/post/2020-09-11-my-understanding-of-rinno_files/20200526_181303.jpg" />
+
+</div>
+<p>In today's post I want to go over RInno for deploying Shiny apps to desktop as well as the benefits and how to get it all going. The <em>My Understanding</em> series is my attempt at writing concise guides for my future self on how to do complicated or infrequent jobs. The RInno package allows for installation of shiny apps onto computers acting as a bridge between R, Inno Setup, windows installers and Electron. This provides an alternative deployment solution to potentially IT heavy processes like Docker or running a Shiny server. I've really enjoyed working with Rinno and wanted to expand on the set-up process.</p>
+<p>In general if you're looking to utilize Rinno as a deployment strategy for Shiny apps I'm going to assume that you have some experience with them. Additionally, I found myself having to use R 3.6.3 as the package has not been updated to the newest versions of R. For best reproducibility I recommend using this version (it really doesn't like version 4).</p>
+<div id="getting-started" class="section level2">
+<h2>Getting Started</h2>
+<p>I ran into problems when initially attempting to install Rinno apparently due to using a 64bit OS. I eventually figured out what to do based on <a href="https://github.com/ficonsulting/RInno/issues/118">an issue on the github</a>. This is how we get Rinno onto our computer instead of a normal <em>install.packages()</em> call.</p>
+<pre class="r"><code>#install.packages(&#39;installr&#39;)
+require(installr)
+install.inno(quick_start_pack = TRUE)
+library(Rinno)</code></pre>
+</div>
+<div id="manual-function-update" class="section level2">
+<h2>Manual Function Update</h2>
+<p>As mentioned earlier RInno at the time of writing hasn't been updated to cooperate with version 4 of R and onwards. Normally this may not be a problem but here it is, as the functions we'll be using later need to know what the most current version of R is. The solution I found, <a href="https://github.com/ficonsulting/RInno/issues/152">sourced again from the github</a> is that we manually update the <em>get_R()</em> function to make sure its knows R version 4.0 and up exists. The downside to this solution is that it's temporary and needs to be done every session. We use <em>trace()</em> to pull up the definition of <em>get_R()</em> and replace the instances of &quot;1-3&quot; with &quot;1-4&quot; since right now it only looks for versions of R that start with 1-3.</p>
+<pre class="r"><code>trace(get_R,edit=T)
+
+#Affected sections:
+# latest_R_version &lt;- readLines(&quot;https://cran.rstudio.com/bin/windows/base/&quot;,
+#    warn = F) %&gt;% stringr::str_extract(&quot;[1-3]\\.[0-9]+\\.[0-9]+&quot;) %&gt;%
+#      stats::na.omit() %&gt;% unique()
+# old_R_versions &lt;- readLines(&quot;https://cran.rstudio.com/bin/windows/base/old/&quot;,
+#      warn = F) %&gt;% stringr::str_extract(&quot;[1-3]\\.[0-9]+\\.[0-9]+&quot;)</code></pre>
+</div>
+<div id="making-an-example-installer" class="section level2">
+<h2>Making an Example Installer</h2>
+<p>The RInno package includes everything we need to make a quick example if you don't have a shiny app on hand. This is also what we'll be using here. It’s a simple function to generate the example app, after that we'll create the app, then lastly, compile it. You will likely want to observe your working directory after running each line of code so you can see what things are being added or changed.</p>
+<pre class="r"><code>example_app(app_dir = &quot;app&quot;) 
+create_app(app_name = &quot;myapp&quot;, app_dir = &quot;app&quot;)
+compile_iss()</code></pre>
+<p>There are a large number of arguments to <em>create_app()</em> that can be (found here)[<a href="https://www.ficonsulting.com/filabs/RInno" class="uri">https://www.ficonsulting.com/filabs/RInno</a>] and include things like: including company information, password protection, including R and/or packages in the installation, changing the icons, and custom messaging among other things. Once the folder has been compiled we've got our installer. This is what we would give to anyone who was installing our app.</p>
+</div>
+<div id="final-checks-and-final-errors" class="section level2">
+<h2>Final Checks and Final Errors</h2>
+<p>Now we're going to give a quick check that it works by installing it on our own computer. In the apps folder (in our example its &quot;app&quot;) there's a lot more stuff now. The installer is in the Rinno_installer folder and will have the name setup_app (or whatever the app's name is).<br />
+You can install the app like you would any normal program. One thing of note is that the app will throw an error whenever it tries to create icons or shortcuts, meaning 1-2 errors at the end of installation. These errors simply inform you that these shortcuts were not created. I have no idea how to avoid these errors, if you find a way please let me know. But, once clicking through the errors we should be able to launch the app; either from the end of the installer or from where the app was installed (by default its in the Documents folder). Once the app opens up you'll be able to see the final result and that will be the birth of your app!</p>
+</div>
+<div id="other-resources" class="section level2">
+<h2>Other Resources</h2>
+<p>There's a lot more you can do with Rinno so you can check out these extra resources. I was unable to find any sort of tutorials other than the minimal example provided by the publisher but it shows a lot of the customizability of Rinno that I only glossed over here.</p>
+<p>RInno project website <a href="https://www.ficonsulting.com/filabs/RInno" class="uri">https://www.ficonsulting.com/filabs/RInno</a><br />
+RInno project github <a href="https://github.com/ficonsulting/RInno" class="uri">https://github.com/ficonsulting/RInno</a></p>
+<p>Shiny meets Electron: Turn your Shiny app into a standalone desktop app in no time <a href="https://youtu.be/ARrbbviGvjc" class="uri">https://youtu.be/ARrbbviGvjc</a></p>
+</div>
+
+        </div>
+        <div class="mb-3 post-meta">
+           <a href="/tags/blogdown">#Blogdown</a>,   <a href="/tags/shiny">#Shiny</a>,   <a href="/tags/deployment">#Deployment</a>,  
+        </div>
+      </div>
+      <div class="col-lg-8 mx-auto block shadow">
+        
+        
+        <h3>See Also</h3>
+        <ul>
+          
+          <li><a href="/post/i-generated-the-potionmaster-teacher-s-dashboard/">I Generated the Potionmaster Teacher&#39;s Dashboard</a></li>
+          
+          <li><a href="/post/my-understanding-of-blogdown-github/">My Understanding of Blogdown &amp; Github</a></li>
+          
+        </ul>
+        
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<footer class="py-4 bg-light border-top">
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+        <a href="/" class="d-block pb-3"><img src="/images/logo-small.png" class="img-fluid" alt="Matthew Pawliw-Levac"></a>
+      </div>
+      <div class="col-lg-4 text-center mb-4 mb-lg-0">
+        <ul class="list-inline mb-0">
+          
+        </ul>
+      </div>
+      <div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+        <ul class="list-inline social-icon mb-0">
+          
+          <li class="list-inline-item"><a href="https://twitter.com/ToaEmpoleon"><i class="ti-twitter-alt"></i></a></li>
+          
+          <li class="list-inline-item"><a href="https://github.com/mpawliwllevac"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a href="https://ca.linkedin.com/in/matthew-pawliw-levac-581406167"><i class="ti-linkedin"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <span>© 2020 <a href="https://gethugothemes.com">Gethugothemes</a> All Rights Reserved</span>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+<!-- JS Plugins -->
+
+<script src="/plugins/jQuery/jquery.min.js"></script>
+
+<script src="/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="/plugins/search/fuse.min.js"></script>
+
+<script src="/plugins/search/mark.js"></script>
+
+<script src="/plugins/search/search.js"></script>
+
+
+<!-- Main Script -->
+
+<script src="/js/script.min.js"></script>
+
+<!-- google analitycs -->
+</body>
+
+</html>

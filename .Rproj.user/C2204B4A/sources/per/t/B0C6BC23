@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1599840983600.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "141409478",
+    "id" : "B0C6BC23",
+    "lastKnownWriteTime" : 1599846912,
+    "last_content_update" : 1599846912014,
+    "path" : "C:/Users/matth/Dropbox/R Working Directory/Portfolio1.1/config.toml",
+    "project_path" : "config.toml",
+    "properties" : {
+        "cursorPosition" : "53,15",
+        "scrollLine" : "68"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "toml"
+}

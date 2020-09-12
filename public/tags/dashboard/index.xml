@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dashboard on Matthew Pawliw-Levac</title>
+    <link>/tags/dashboard/</link>
+    <description>Recent content in dashboard on Matthew Pawliw-Levac</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Aug 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/dashboard/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>I Generated the Potionmaster Teacher&#39;s Dashboard</title>
+      <link>/post/i-generated-the-potionmaster-teacher-s-dashboard/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/i-generated-the-potionmaster-teacher-s-dashboard/</guid>
+      <description>This is a thing I made: https://mpawliw-levac.shinyapps.io/potionmaster/
+Why did I make it?</description>
+    </item>
+    
+  </channel>
+</rss>
