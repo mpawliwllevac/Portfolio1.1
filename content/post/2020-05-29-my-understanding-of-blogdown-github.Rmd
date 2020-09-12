@@ -127,15 +127,15 @@ For this step you'll be going to www.netlify.com and making an account with them
 
 We're in the home stretch. This part is largely pushing buttons so here's the list of buttons after you've got your account.
 
-* Sites tab  
-* new site from git  
-* github as the git provider  
-* authorize netlify into your github  
-* select the repository you've made for your website (the one you were committing files to earlier)  
-* 'show advanced' build settings  
-* new variable  
-* Key: HUGO_VERSION   
-* Value: 0.53  
+* Sites tab
+* new site from git
+* github as the git provider
+* authorize netlify into your github
+* select the repository you've made for your website (the one you were committing files to earlier)
+* 'show advanced' build settings
+* new variable
+* Key: HUGO_VERSION
+* Value: 0.53 (value depends on theme used)
 
 1of7 ![](/post/2020-05-29-my-understanding-of-blogdown-github_files/bd22_new_site.png){width=550px}  
 
