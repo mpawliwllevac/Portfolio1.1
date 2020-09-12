@@ -1,5 +1,5 @@
 ############################ Default configuration #########################
-baseURL = "https://examplesite.com/"
+baseURL = "/"
 languageCode = "en-us"
 # site title 
 title = "Matthew Pawliw-Levac"

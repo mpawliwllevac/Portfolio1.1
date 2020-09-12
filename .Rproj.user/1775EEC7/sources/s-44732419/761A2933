@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "3265836519",
     "id" : "761A2933",
-    "lastKnownWriteTime" : 1599942295,
-    "last_content_update" : 1599942295582,
+    "lastKnownWriteTime" : 1599946298,
+    "last_content_update" : 1599946298747,
     "path" : "C:/Users/Matthew/Dropbox/R Working Directory/Portfolio1.1/config.toml",
     "project_path" : "config.toml",
     "properties" : {
-        "cursorPosition" : "103,98",
-        "scrollLine" : "89"
+        "cursorPosition" : "1,11",
+        "scrollLine" : "0"
     },
     "relative_order" : 1,
     "source_on_save" : false,
