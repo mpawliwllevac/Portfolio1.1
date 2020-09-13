@@ -92,7 +92,7 @@ preloader = "" # use png, jpg, svg or gif format
 ####################### banner #######################################
 [params.banner]
 bgImage = "images/banner/banner-bg.svg"
-title = "Hi, I'm Matthew Pawliw-Levac. <br> I want to use data science to better serve my community."
+title = "Hi, I'm Matthew Pawliw-Levac. I’m a data analyst using R for data visualization and knowledge mobilization."
 image = "images/banner/20200605_153320.jpg"
 
 
