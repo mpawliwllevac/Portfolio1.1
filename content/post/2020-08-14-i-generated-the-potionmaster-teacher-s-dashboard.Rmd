@@ -42,5 +42,6 @@ Currently the dashboard lets a user filter (sample) students based on a number o
 * Summary data having tables of varying length makes them not look as good as they could be. This would also cause problems if there was more than one row of tables.  
 * I was unable to decide between histogram and density plot given the limitations of each and ended up opting to include both as separate plots.
  
-[Raw code available here](https://github.com/mpawliwllevac/R-Scripts-Reference/blob/master/Potionmaster/app.R)  
+[Raw code available here](https://github.com/mpawliwllevac/R-Scripts-Reference/blob/master/Potionmaster/app.R)
+[Survey available here](https://forms.gle/LspRNTpB3L7agDLWA)
 

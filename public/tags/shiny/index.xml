@@ -6,10 +6,21 @@
     <description>Recent content in shiny on Matthew Pawliw-Levac</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/shiny/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>I Generated a Sample Survey Product</title>
+      <link>/post/i-generated-a-sample-survey-product/</link>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/i-generated-a-sample-survey-product/</guid>
+      <description>This is a thing I made:
+https://mpawliw-levac.shinyapps.io/learning_styles_sample/
+Why did I make it?</description>
+    </item>
     
     <item>
       <title>My Understanding of RInno</title>
