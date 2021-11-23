@@ -94,7 +94,8 @@ preloader = "" # use png, jpg, svg or gif format
 bgImage = "images/banner/banner-bg.svg"
 title = "Hi, I'm Matthew Pawliw-Levac. I’m a data analyst using R for data visualization and knowledge mobilization."
 image = "images/banner/20200605_153320.jpg"
-
+#"images/banner/20200605_153320p.png"
+#
 
 ######################## call to action ###############################
 #[params.cta]
@@ -111,7 +112,7 @@ image = "images/banner/20200605_153320.jpg"
 ############################## Social Site ##########################
 [[params.social]]
 icon = "ti-twitter-alt" # themify icon pack https://themify.me/themify-icons
-link = "https://twitter.com/ToaEmpoleon"
+link = "https://twitter.com/one_matthew2"
 [[params.social]]
 icon = "ti-github" # themify icon pack https://themify.me/themify-icons
 link = "https://github.com/mpawliwllevac"

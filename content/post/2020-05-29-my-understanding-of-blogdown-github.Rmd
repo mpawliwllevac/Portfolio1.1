@@ -13,6 +13,14 @@ tags:
   - netlify
 ---
 
+
+```{r echo=FALSE}
+#I've had issues getting images to line up. originally images were pulled from 
+# "C:\Users\Matthew\Dropbox\R Working Directory\Portfolio1.1\public\post\2020-05-29-my-understanding-of-blogdown-github_files"
+# but for some reason it stopped working. I copied the ..._files folder into content\post and upon refreshing the images worked again
+#eventually i noticed the folder was gone but the site was still working. this is ok
+```
+
 As seems to be Blogdown tradition my first blog post using blogdown is a quick and dirty guide for getting a blogdown site off the ground. The *My Understanding* of series is my attempt at writing concise guides for my future self on how to do complicated or infrequent jobs. This page is about creating a website using Blogdown from scratch, which I've always found to be a very obtuse process that frequently runs into errors not explained in tutorials/guides. I don't plan on explaining the benefits of blogdown (though look here for that https://bookdown.org/yihui/blogdown/ ) or comparing blogdown to other ways to make website. I'm fairly sure there are objectively easier ways to make a blog or website than using blogdown UNLESS your site is about R. I will also not be demonstrating how to add content or customize the site on this page. If it ends up such that you do not feel like this guide has been completely helpful I have a resources section at the bottom with other tutorials and information about blogdown. I myself used other tutorials to make this happen in the first place.
 <br>
 If you happen to not be me there are a few things that one should already know how to do before starting this process. The most important of which is already having a solid understanding of R and R Studio. Other than that its mostly making online acounts and pressing buttons.
@@ -24,11 +32,10 @@ Aquiring the blogdown package is as simple as aquiring any R package *install.pa
 ```{r eval=FALSE}
 #code used:
 install.packages("blogdown")
-
 ```
 
 # Creating a Local Site
-Once blogdown is installed we're going to make a new R studio project. When starting the project in a new/existing directory under 'project type' you'll be able to select 'website using blogdown'. When the project files are created it'll come with a config.toml file that you can make changes to to customize your site. 
+Once blogdown is installed we're going to make a new R studio project. When starting the project in a new/existing directory under 'project type' you'll be able to select 'website using blogdown'. When the project files are created it'll come with a config.toml file that you can make changes to to customize your site.j 
 
 1of5 ![](/post/2020-05-29-my-understanding-of-blogdown-github_files/bd1_install_blogdown.png){width=300px}  
 2of5 ![](/post/2020-05-29-my-understanding-of-blogdown-github_files/bd2_new_project.png){width=700px}  

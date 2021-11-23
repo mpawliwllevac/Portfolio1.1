@@ -1,0 +1,3 @@
+2021.11.23
+issues w images 1 - images for blogdown/github1 got messed up. I copied the folder into content/post and re-serving the site got it working, even though the folder disapeared and now lives in public/post
+issues w images 2 - all images/icons for the main site stopped working. I realized that the site was no longer pulling from the images in public/images and was instead pulling from static/images (default images worked because they were in both places). I copied my images to static/images and it worked.
