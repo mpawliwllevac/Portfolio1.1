@@ -1,10 +1,10 @@
 ############################ Default configuration #########################
-baseURL = "/"
+baseURL = "https://demo.gethugothemes.com/northendlab-light/examplesite/"
 languageCode = "en-us"
 # site title 
-title = "Matthew Pawliw-Levac"
+title = "Northendlab | Blog Template"
 # theme
-theme = "northendlab-light-hugo"
+theme = "northendlab-light"
 # post pagination
 paginate = "5"
 # post excerpt
@@ -40,25 +40,30 @@ link = "plugins/search/search.js"
 
 # main menu
 [[menu.main]]
-URL = "contact"
+URL = "contact/"
 name = "Contact"
+weight = 1
+
+[[menu.main]]
+URL = "tools/"
+name = "tools"
 weight = 2
 
 [[menu.main]]
-URL = "about"
-name = "About"
-weight = 1
-
-#[[menu.main]]
-#URL = "tools"
-#name = "tools"
-#weight = 2
+URL = "https://gethugothemes.com/products/northendlab/"
+name = "Buy Premium"
+weight = 2
 
 # footer menu
-#[[menu.footer]]
-#URL = "contact"
-#name = "Contact"
-#weight = 1
+[[menu.footer]]
+URL = "contact/"
+name = "Contact"
+weight = 1
+
+[[menu.footer]]
+URL = "tools/"
+name = "tools"
+weight = 2
 
 
 ######################### Default Parameters ###########################
@@ -66,16 +71,14 @@ weight = 1
 # home
 home = "Home"
 # logo
-logo = "images/logo-small(old).png"
+logo = "images/logo.svg"
 # meta data
-author = "Matthew Pawliw-Levac"
-description = "The portfolio and blog of Matthew Pawliw-Levac"
+author = "Themefisher"
+description = "This is meta description"
 # google tag manager
 google_tag_manager = "" # your id
-# google analitycs ID
-google_analitycs_id = "" # your id
 # contact form action
-contact_form_action = "https://formspree.io/meqpjqne" # contact form works with : https://formspree.io
+contact_form_action = "#" # contact form works with : https://formspree.io
 # copyright
 copyright = "&copy; 2020 [Gethugothemes](https://gethugothemes.com) All Rights Reserved"
 
@@ -85,42 +88,43 @@ enable = true
 preloader = "" # use png, jpg, svg or gif format
 
 # search
-#[params.search]
-#enable = true
+[params.search]
+enable = true
 
+# cookies
+[params.cookies]
+enable = true
+expire_days = 2
 
 ####################### banner #######################################
 [params.banner]
 bgImage = "images/banner/banner-bg.svg"
-title = "Hi, I'm Matthew Pawliw-Levac. I’m a data analyst using R for data visualization and knowledge mobilization."
-image = "images/banner/20200605_153320.jpg"
-#"images/banner/20200605_153320p.png"
-#
+title = "Hi, I'm John Smith Doe. <br> I help people make the  worlds best software"
+image = "images/banner/illustration.svg"
+
 
 ######################## call to action ###############################
-#[params.cta]
-#enable = true
-#image = "images/hugo-muscot.svg"
-#title = "Get the best hugo templates"
-#description = "Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus."
-#[params.cta.button]
-#enable = true
-#label = "Visit Here"
-#link = "https://gethugothemes.com/shop/"
+[params.cta]
+enable = true
+image = "images/hugo-muscot.svg"
+title = "Get the best hugo templates"
+description = "Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus."
+[params.cta.button]
+enable = true
+label = "Visit Here"
+link = "https://gethugothemes.com/shop/"
 
 
 ############################## Social Site ##########################
 [[params.social]]
+icon = "ti-facebook" # themify icon pack https://themify.me/themify-icons
+link = "#"
+[[params.social]]
 icon = "ti-twitter-alt" # themify icon pack https://themify.me/themify-icons
-link = "https://twitter.com/one_matthew2"
+link = "#"
 [[params.social]]
 icon = "ti-github" # themify icon pack https://themify.me/themify-icons
-link = "https://github.com/mpawliwllevac"
+link = "#"
 [[params.social]]
 icon = "ti-linkedin" # themify icon pack https://themify.me/themify-icons
-link = "https://ca.linkedin.com/in/matthew-pawliw-levac-581406167"
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+link = "#"
